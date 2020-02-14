@@ -1,0 +1,28 @@
+{
+  "name": "newebpay",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix"
+  },
+  "keywords": [],
+  "author": "11",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0"
+  }
+}
