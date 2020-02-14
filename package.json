@@ -1,6 +1,6 @@
 {
-  "name": "NewebPay",
-  "version": "0.0.3",
+  "name": "newebpay",
+  "version": "0.0.4",
   "description": "Module for Newebpay",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,12 +16,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:libterty/NewebPay.git"
+    "url": "git@github.com:libterty/newebpay.git"
   },
   "bugs": {
-    "url": "https://github.com/libterty/NewebPay/issues"
+    "url": "https://github.com/libterty/newebpay/issues"
   },
-  "homepage": "https://github.com/libterty/NewebPay/issues",
+  "homepage": "https://github.com/libterty/newebpay/issues",
   "dependencies": {
     "class-validator": "^0.11.0",
     "typescript": "^3.7.5"

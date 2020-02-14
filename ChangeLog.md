@@ -1,8 +1,15 @@
+## Version 0.0.4 (2019-02-14)
+
+### New features
+
+- Adding Email Check[``]()
+
 ## Version 0.0.3 (2019-02-14)
 
 ### New features
 
-- Updating npm configuration[``]()
+- Updating npm configuration[`9db4af7251f547840f0b3f1d1a9346ed2ab4ea41`](https://github.com/libterty/NewebPay/commit/9db4af7251f547840f0b3f1d1a9346ed2ab4ea41)
+- Updating npm configuration[`a413c82ac500d456d8952f7f763d03991fb42737`](https://github.com/libterty/NewebPay/commit/a413c82ac500d456d8952f7f763d03991fb42737)
 
 
 ## Version 0.0.2 (2019-02-14)

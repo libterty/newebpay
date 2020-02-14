@@ -76,10 +76,11 @@ export class TradeModules {
   }
 
   getTradeInfo(Amt: number, Desc: string, email: string): object {
+    const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
     if (typeof Amt !== 'number') throw new Error(`Input Amt type ${Amt} Error`);
     if (Desc.length < 1) throw new Error(`Input Desc Length ${Desc} Error`);
-    const isEmail = validator.isEmail(email);
-    console.log('isEmail', isEmail);
+    if (email.search(emailRule) > -1) throw new Error(`Input Email content ${email} Error`);
 
     const data = {
       MerchantID: this.MerchantID,
