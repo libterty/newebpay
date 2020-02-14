@@ -1,8 +1,9 @@
 import { createCipheriv, createDecipheriv, createHash } from 'crypto';
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsUrl } from 'class-validator';
 
 export class TradeModules {
   @IsNotEmpty()
+  @IsUrl()
   URL: string;
   @IsNotEmpty()
   MerchantID: string;
@@ -11,12 +12,16 @@ export class TradeModules {
   @IsNotEmpty()
   HashIV: string;
   @IsNotEmpty()
+  @IsUrl()
   PayGateWay: string;
   @IsNotEmpty()
+  @IsUrl()
   ReturnURL: string;
   @IsNotEmpty()
+  @IsUrl()
   NotifyURL: string;
   @IsNotEmpty()
+  @IsUrl()
   ClientBackURL: string;
 
   constructor(
