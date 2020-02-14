@@ -1,5 +1,5 @@
 {
-  "name": "@libterty/newebpay",
+  "name": "NewebPay",
   "version": "0.0.3",
   "description": "Module for Newebpay",
   "main": "lib/index.js",
