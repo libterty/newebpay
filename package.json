@@ -11,6 +11,14 @@
   "keywords": ["Newebpay"],
   "author": "11",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:libterty/NewebPay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/libterty/NewebPay/issues"
+  },
+  "homepage": "https://github.com/libterty/NewebPay/issues",
   "dependencies": {
     "typescript": "^3.7.5"
   },
@@ -24,5 +32,8 @@
     "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
