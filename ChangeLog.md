@@ -1,15 +1,27 @@
+## Version 0.0.6 (2019-02-14)
+
+### Bug Fixes
+
+- Fixing Email Check Err[`b60d79ac667c7375f08f9430f0ab4089c84685c6`](https://github.com/libterty/newebpay/commit/b60d79ac667c7375f08f9430f0ab4089c84685c6)
+
+## Version 0.0.5 (2019-02-14)
+
+### Bug Fixes
+
+- Updating Package Version[`a5507b7da6e0133a62a8ce3e79cae1d8ec3fbfc0`](https://github.com/libterty/newebpay/commit/a5507b7da6e0133a62a8ce3e79cae1d8ec3fbfc0)
+
 ## Version 0.0.4 (2019-02-14)
 
 ### New features
 
-- Adding Email Check[``]()
+- Update getTradeInfo with email check[`d280f5806ebd8293cf79e0bb85d1cd471990f17d`](https://github.com/libterty/newebpay/commit/d280f5806ebd8293cf79e0bb85d1cd471990f17d)
 
 ## Version 0.0.3 (2019-02-14)
 
 ### New features
 
 - Updating npm configuration[`9db4af7251f547840f0b3f1d1a9346ed2ab4ea41`](https://github.com/libterty/NewebPay/commit/9db4af7251f547840f0b3f1d1a9346ed2ab4ea41)
-- Updating npm configuration[`a413c82ac500d456d8952f7f763d03991fb42737`](https://github.com/libterty/NewebPay/commit/a413c82ac500d456d8952f7f763d03991fb42737)
+- Updating package name[`a413c82ac500d456d8952f7f763d03991fb42737`](https://github.com/libterty/NewebPay/commit/a413c82ac500d456d8952f7f763d03991fb42737)
 
 
 ## Version 0.0.2 (2019-02-14)

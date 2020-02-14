@@ -1,6 +1,6 @@
 {
   "name": "newebpay",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Module for Newebpay",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
