@@ -1,14 +1,14 @@
 {
   "name": "newebpay",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "API/SDK module for Newebpay",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix"
   },
-  "keywords": [],
+  "keywords": ["Newebpay"],
   "author": "11",
   "license": "MIT",
   "dependencies": {
