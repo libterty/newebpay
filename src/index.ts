@@ -30,7 +30,7 @@ export class TradeModules {
     hashKey: string,
     hashIV: string,
     payGateWay: string,
-    clientBackURL: string
+    clientBackURL: string,
   ) {
     this.URL = url;
     this.MerchantID = merchantId;
@@ -80,33 +80,35 @@ export class TradeModules {
 
     if (typeof Amt !== 'number') throw new Error(`Input Amt type ${Amt} Error`);
     if (Desc.length < 1) throw new Error(`Input Desc Length ${Desc} Error`);
-    if (email.search(emailRule) > -1) throw new Error(`Input Email content ${email} Error`);
-
-    const data = {
-      MerchantID: this.MerchantID,
-      RespondType: 'JSON',
-      TimeStamp: Date.now(),
-      Version: 1.5,
-      MerchantOrderNo: Date.now(),
-      LoginType: 0,
-      OrderComment: 'OrderComment',
-      Amt: Amt,
-      ItemDesc: Desc,
-      Email: email,
-      ReturnURL: this.ReturnURL,
-      NotifyURL: this.NotifyURL,
-      ClientBackURL: this.ClientBackURL,
-    };
-    const mpgAesEncrypt = this.createMpgAesEncrypt(data);
-    const mpgShaEncrypt = this.createMpgShaEncrypt(mpgAesEncrypt);
-    const tradeInfo = {
-      MerchantID: this.MerchantID,
-      TradeInfo: mpgAesEncrypt,
-      TradeSha: mpgShaEncrypt,
-      Version: 1.5,
-      PayGateWay: this.PayGateWay,
-      MerchantOrderNo: data.MerchantOrderNo,
-    };
-    return tradeInfo;
+    if (email.search(emailRule) !== -1) {
+      const data = {
+        MerchantID: this.MerchantID,
+        RespondType: 'JSON',
+        TimeStamp: Date.now(),
+        Version: 1.5,
+        MerchantOrderNo: Date.now(),
+        LoginType: 0,
+        OrderComment: 'OrderComment',
+        Amt: Amt,
+        ItemDesc: Desc,
+        Email: email,
+        ReturnURL: this.ReturnURL,
+        NotifyURL: this.NotifyURL,
+        ClientBackURL: this.ClientBackURL,
+      };
+      const mpgAesEncrypt = this.createMpgAesEncrypt(data);
+      const mpgShaEncrypt = this.createMpgShaEncrypt(mpgAesEncrypt);
+      const tradeInfo = {
+        MerchantID: this.MerchantID,
+        TradeInfo: mpgAesEncrypt,
+        TradeSha: mpgShaEncrypt,
+        Version: 1.5,
+        PayGateWay: this.PayGateWay,
+        MerchantOrderNo: data.MerchantOrderNo,
+      };
+      return tradeInfo;
+    } else {
+      throw new Error(`Input Email content ${email} Error`);
+    }
   }
 }
