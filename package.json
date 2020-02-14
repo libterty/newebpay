@@ -1,8 +1,9 @@
 {
   "name": "@libterty/newebpay",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Module for Newebpay",
-  "main": "./src/index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
