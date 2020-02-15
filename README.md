@@ -50,7 +50,7 @@ const tradeInfo = trade.getTradeInfo(
 }
 ```
 
-- When you want encrypt Newebpay Feedback Information
+- When you want Decrypt Newebpay Feedback Information
 
 ```javascript
 const tradeData = JSON.parse(trade.createMpgAesDecrypt(TradeInfo));

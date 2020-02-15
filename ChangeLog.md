@@ -1,8 +1,14 @@
+## Version 0.0.10 (2019-02-15)
+
+## Updating Document
+
+- Revise Readme Decrypt comment Info[``]()
+
 ## Version 0.0.9 (2019-02-15)
 
 ## New features
 
-- Reducing Build file[``]()
+- Reducing Build file[`1e17889d8c58e614baa3e3d74155bcc99e70cf0c`](https://github.com/libterty/newebpay/commit/1e17889d8c58e614baa3e3d74155bcc99e70cf0c)
 
 ## Version 0.0.8 (2019-02-15)
 
