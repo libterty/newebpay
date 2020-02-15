@@ -1,13 +1,15 @@
 {
   "name": "newebpay",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Module for Newebpay",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix"
+    "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix",
+    "test": "jest --maxWorkers=2",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "Newebpay"
@@ -21,23 +23,40 @@
   "bugs": {
     "url": "https://github.com/libterty/newebpay/issues"
   },
-  "homepage": "https://github.com/libterty/newebpay/issues",
+  "homepage": "https://github.com/libterty/newebpay",
   "dependencies": {
     "class-validator": "^0.11.0",
     "typescript": "^3.7.5"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0"
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "test",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
 }

@@ -1,5 +1,7 @@
 # NewebPay Implementation
 
+[![CircleCI](https://circleci.com/gh/libterty/newebpay/tree/master.svg?style=svg)](https://circleci.com/gh/libterty/newebpay/tree/master)
+
 - Referencing NewebPay API Document to perform API calling and bundle it into a module
 
 ## How to install

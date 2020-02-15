@@ -42,7 +42,7 @@ export class TradeModules {
     this.ClientBackURL = clientBackURL || 'http://localhost:8080/orders';
   }
 
-  genDataChain(TradeInfo: object): string {
+  private genDataChain(TradeInfo: object): string {
     const results = [];
     for (const kv of Object.entries(TradeInfo)) {
       results.push(`${kv[0]}=${kv[1]}`);
@@ -50,13 +50,13 @@ export class TradeModules {
     return results.join('&');
   }
 
-  createMpgAesEncrypt(TradeInfo: object): string {
+  private createMpgAesEncrypt(TradeInfo: object): string {
     const encrypt = createCipheriv('aes256', this.HashKey, this.HashIV);
     const enc = encrypt.update(this.genDataChain(TradeInfo), 'utf8', 'hex');
     return enc + encrypt.final('hex');
   }
 
-  createMpgAesDecrypt(TradeInfo: string): string {
+  public createMpgAesDecrypt(TradeInfo: string): string {
     const decrypt = createDecipheriv('aes256', this.HashKey, this.HashIV);
     decrypt.setAutoPadding(false);
     const text = decrypt.update(TradeInfo, 'hex', 'utf8');
@@ -65,7 +65,7 @@ export class TradeModules {
     return result;
   }
 
-  createMpgShaEncrypt(TradeInfo: string): string {
+  private createMpgShaEncrypt(TradeInfo: string): string {
     const sha = createHash('sha256');
     const plainText = `HashKey=${this.HashKey}&${TradeInfo}&HashIV=${this.HashIV}`;
 
@@ -75,11 +75,13 @@ export class TradeModules {
       .toUpperCase();
   }
 
-  getTradeInfo(Amt: number, Desc: string, email: string): object {
+  public getTradeInfo(Amt: number, Desc: string, email: string): any {
     const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
-    if (typeof Amt !== 'number') throw new Error(`Input Amt type ${Amt} Error`);
-    if (Desc.length < 1) throw new Error(`Input Desc Length ${Desc} Error`);
+    if (Amt < 0)
+      return { status: 'error', message: `Input Amt type ${Amt} Error` };
+    if (Desc.length < 1)
+      return { status: 'error', message: `Input Desc Length ${Desc} Error` };
     if (email.search(emailRule) !== -1) {
       const data = {
         MerchantID: this.MerchantID,
@@ -108,7 +110,7 @@ export class TradeModules {
       };
       return tradeInfo;
     } else {
-      throw new Error(`Input Email content ${email} Error`);
+      return { status: 'error', message: `Input Email content ${email} Error` };
     }
   }
 }
