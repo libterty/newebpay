@@ -25,7 +25,7 @@ describe('# TradesModules', () => {
     });
 
     describe('Request getTradeInfo()', () => {
-      it('Should return results as a string which contains correct data', () => {
+      it('Should return results as an Object which contains correct data', () => {
         const result = tradeModules.getTradeInfo(3700, '1', 'test@test.com');
         expect(result.MerchantID).toEqual('MS88888888');
         expect(result.PayGateWay).toEqual(
