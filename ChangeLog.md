@@ -2,16 +2,16 @@
 
 ## New features
 
-- Adding Unit Test[``]()
+- Adding Unit Test[`3c43cd2ea850d97ef3a03a0c88250d5a71489a3d`](https://github.com/libterty/newebpay/commit/3c43cd2ea850d97ef3a03a0c88250d5a71489a3d)
 
 ### Bug Fixes
 
-- Fixing getTradeInfo thrown issue[``]()
-- Fixing function scope[``]()
+- Fixing getTradeInfo thrown issue[`3c43cd2ea850d97ef3a03a0c88250d5a71489a3d`](https://github.com/libterty/newebpay/commit/3c43cd2ea850d97ef3a03a0c88250d5a71489a3d)
+- Fixing function scope[`3c43cd2ea850d97ef3a03a0c88250d5a71489a3d`](https://github.com/libterty/newebpay/commit/3c43cd2ea850d97ef3a03a0c88250d5a71489a3d)
 
 ### Updating Document
 
-- Updating Readme and ChangeLog[``]()
+- Updating Readme and ChangeLog[`3c43cd2ea850d97ef3a03a0c88250d5a71489a3d`](https://github.com/libterty/newebpay/commit/3c43cd2ea850d97ef3a03a0c88250d5a71489a3d)
 
 ## Version 0.0.7 (2019-02-14)
 
