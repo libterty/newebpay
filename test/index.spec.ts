@@ -1,25 +1,35 @@
+import TradeDto from '../src/dto/trade-init.dto';
 import { TradeModules } from '../src/index';
 // Above Data is all fake data, please do not reference it
-const tradeModules = new TradeModules(
-  'http://localhost:3000/api',
-  'MS88888888',
-  'sdfkalusalfksmkfljsdkafulT41vTwL',
-  'asdfasdfasd32mLP',
-  'https://ccore.spgateway.com/MPG/mpg_gateway',
-  'http://localhost:3000/api/orders',
-);
+
+const tradeModules = new TradeModules();
 
 describe('# TradesModules', () => {
+  beforeAll(async done => {
+    const trade = await tradeModules.setTrade({
+      URL: 'http://localhost:3000/api',
+      MerchantID: 'MS88888888',
+      HashKey: 'sdfkalusalfksmkfljsdkafulT41vTwL',
+      HashIV: 'asdfasdfasd32mLP',
+      PayGateWay: 'https://ccore.spgateway.com/MPG/mpg_gateway',
+      ClientBackURL: 'http://localhost:3000/api/orders',
+    });
+    if (trade instanceof TradeDto) tradeModules.trade = trade;
+    done();
+  });
+
   describe('# When Request reqeust coming into TradesModules', () => {
     it('Should be able to init TradeModules', () => {
-      expect(tradeModules.URL).toEqual('http://localhost:3000/api');
-      expect(tradeModules.MerchantID).toEqual('MS88888888');
-      expect(tradeModules.HashKey).toEqual('sdfkalusalfksmkfljsdkafulT41vTwL');
-      expect(tradeModules.HashIV).toEqual('asdfasdfasd32mLP');
-      expect(tradeModules.PayGateWay).toEqual(
+      expect(tradeModules.trade.URL).toEqual('http://localhost:3000/api');
+      expect(tradeModules.trade.MerchantID).toEqual('MS88888888');
+      expect(tradeModules.trade.HashKey).toEqual(
+        'sdfkalusalfksmkfljsdkafulT41vTwL',
+      );
+      expect(tradeModules.trade.HashIV).toEqual('asdfasdfasd32mLP');
+      expect(tradeModules.trade.PayGateWay).toEqual(
         'https://ccore.spgateway.com/MPG/mpg_gateway',
       );
-      expect(tradeModules.ClientBackURL).toEqual(
+      expect(tradeModules.trade.ClientBackURL).toEqual(
         'http://localhost:3000/api/orders',
       );
     });
@@ -33,28 +43,22 @@ describe('# TradesModules', () => {
         );
       });
 
-      it('Should return Error when Amt is incorrect', () => {
-        const result = tradeModules.getTradeInfo(-1, '1', 'test@test.com');
-        expect(result.status).toEqual('error');
-        expect(result.message).toEqual('Input Amt type -1 Error');
+      it('Should return Error when Amt is less than zero', () => {
+        expect(() => {
+          tradeModules.getTradeInfo(-1, '1', 'test@test.com');
+        }).toThrow('Input Amt cannot less than zero');
       });
 
       it('Should return Error when Desc is incorrect', () => {
-        const result = tradeModules.getTradeInfo(3700, '', 'test@test.com');
-        expect(result.status).toEqual('error');
-        expect(result.message).toEqual('Input Desc Length  Error');
+        expect(() => {
+          tradeModules.getTradeInfo(3700, '', 'test@test.com');
+        }).toThrow(`Input Desc:  length cannot less than 1`);
       });
 
       it('Should return Error when Email is incorrect', () => {
-        const result = tradeModules.getTradeInfo(
-          3700,
-          'test',
-          'test.malwaretest.com',
-        );
-        expect(result.status).toEqual('error');
-        expect(result.message).toEqual(
-          'Input Email content test.malwaretest.com Error',
-        );
+        expect(() => {
+          tradeModules.getTradeInfo(3700, 'test', 'test.malwaretest.com');
+        }).toThrow('Input email content test.malwaretest.com malware');
       });
     });
 
@@ -64,9 +68,9 @@ describe('# TradesModules', () => {
 
       it('Should return Decrypt Data hex when we call the function', () => {
         const data = tradeModules.createMpgAesDecrypt(mpgAesEncrypt);
-        expect(data).toMatch(/MerchantID=test1test1/);
-        expect(data).toMatch(/MerchantOrderNo=1581755183872/);
-        expect(data).toMatch(/Email=test1@example.com/);
+        expect(data.MerchantID).toEqual('test1test1');
+        expect(data.MerchantOrderNo).toEqual('1581755183872');
+        expect(data.Email).toEqual('test1@example.com');
       });
     });
   });

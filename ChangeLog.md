@@ -1,3 +1,12 @@
+## Version 0.0.11 (2021-04-08)
+
+## Refactoring Code and Update Documents
+
+- Update ReadMe documents[`19f2423bb033c8af7f9411a37bbe55c2e99f8332`]
+- Upgrade dependency[`3fac3ddb35ac3da590ff8a011821c9eb07a3d59d`]
+- Refactoring Code by wraping global declare into an interface and validates with dto[`3fac3ddb35ac3da590ff8a011821c9eb07a3d59d`]
+- Adding parser for `createMpgAesDecrypt` function[`3fac3ddb35ac3da590ff8a011821c9eb07a3d59d`]
+
 ## Version 0.0.10 (2019-02-15)
 
 ## Updating Document

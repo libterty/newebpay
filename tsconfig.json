@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "es5",
     "module": "commonjs",
     "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
     "outDir": "./lib",
-    "strict": true
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "include": [
-    "src", 
+    "src/**/*", 
     "**/test/**/*.ts"
   ],
   "exclude": ["node_modules", "test"]
